@@ -6,11 +6,11 @@ from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from .models import *
 
-def events(request):
+def eventsXML(request):
     eventList = Event.objects.all()
     return render_to_response('events.xml',
-                              {'eventList' : eventList},
-                                content_type='application/xhtml+xml')
+                              {"eventList" : eventList},
+                              content_type="application/xhtml+xml")
 
 @csrf_exempt
 def dataprocessor(request):
@@ -58,6 +58,6 @@ def dataprocessor(request):
 
 	responseList.append(response)
             
-    	return render_to_response('dataprocessor.xml', {"responseList": responseList},
+    return render_to_response('dataprocessor.xml', {"responseList": responseList},
                                     content_type="application/xhtml+xml")
 

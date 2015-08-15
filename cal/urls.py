@@ -7,8 +7,8 @@ from cal import views
 
 urlpatterns = patterns('',
            	url(r'^$', TemplateView.as_view(template_name='index.html')),
-		url(r'^events', views.events, name='events'),
-		url(r'^dataprocessor', views.events, name='dataprocessor'),
+		url(r'^eventsXML', views.eventsXML, name='eventsXML'),
+		url(r'^dataprocessor', views.dataprocessor, name='dataprocessor'),
 	
 )
 

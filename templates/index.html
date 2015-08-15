@@ -33,8 +33,12 @@
 		scheduler.config.xml_date="%Y-%m-%d %H:%i";
 		
 		scheduler.init('scheduler_here',new Date(),"week");
-		scheduler.load("events");
-		
+                scheduler.config.CSRF_Token = "{{ csrf_token }}" ;
+		scheduler.load("eventsXML");
+		var dp = new dataProcessor("dataprocessor");
+		dp.init(scheduler);
+		dp.setTransactionMode("POST",false)
+
 		var calendar = scheduler.renderCalendar({
 			container:"cal_here", 
 			navigation:true,
